@@ -17,7 +17,14 @@ function tinypath() {
 		startdir=0
 	    fi
 	    for dirk in ${pathnow[@]:$startdir:$pathlim}; do
-		    tpath=$tpath"/"$dirk[1]
+		## dirk=${dirk/.+/.}
+		if [[ $dirk[1] == "." ]]; then
+		    dirp=$dirk
+		    dirp=${dirk:0:2}
+		else
+		    dirp=$dirk[1]
+		fi
+		tpath=$tpath"/"$dirp				    
 	    done	
 	    echo $tpath"/"	  
 	fi		       
