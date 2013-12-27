@@ -8,13 +8,24 @@
 
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
-    PROMPT='[%{$fg[red]%}%n%{$reset_color%}@%{$fg[magenta]%}%m%{$reset_color%}:%{$fg[blue]%}$(tinypath)%2~%{$reset_color%}$(git_prompt_info)%{$reset_color%}:$FG[028]%*%{$reset_color%}]
-%# '
-
-    ZSH_THEME_GIT_PROMPT_PREFIX=" on $FG[136]"
+    if [[ "$TERM" == "eterm-color" ]]; then 
+        prompt_timestamp="$fg[cyan]%*%{$reset_color%}"
+	ZSH_THEME_GIT_PROMPT_PREFIX=" on $fg[yellow]"
+    else
+	prompt_timestamp="$FG[028]%*%{$reset_color%}"
+	ZSH_THEME_GIT_PROMPT_PREFIX=" on $FG[136]"
+    fi
+    prompt_user="%{$fg[red]%}%n%{$reset_color%}"
+    prompt_host="%{$fg[magenta]%}%m%{$reset_color%}"
     ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
     ZSH_THEME_GIT_PROMPT_DIRTY=""
     ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+    PROMPT='[${prompt_user}@${prompt_host}:$(tinypath_git):${prompt_timestamp}]
+%# '
+
+#     PROMPT='[${prompt_user}@${prompt_host}:%{$fg[blue]%}$(tinypath)%2~%{$reset_color%}$(git_prompt_info)%{$reset_color%}:${prompt_timestamp}]
+# %# '
 
     # display exitcode on the right when >0
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"

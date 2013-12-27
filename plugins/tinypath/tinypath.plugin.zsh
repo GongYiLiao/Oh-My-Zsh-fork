@@ -30,3 +30,8 @@ function tinypath() {
 	fi		       
      fi 
 }
+
+function tinypath_git() {
+    pathinfo="%{$fg[blue]%}$(tinypath)%2~%{$reset_color%}$(git_prompt_info)%{$reset_color%}"
+    echo $pathinfo
+}
