@@ -24,9 +24,6 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     PROMPT='[${prompt_user}@${prompt_host}:$(tinypath_git):${prompt_timestamp}]
 %# '
 
-#     PROMPT='[${prompt_user}@${prompt_host}:%{$fg[blue]%}$(tinypath)%2~%{$reset_color%}$(git_prompt_info)%{$reset_color%}:${prompt_timestamp}]
-# %# '
-
     # display exitcode on the right when >0
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
