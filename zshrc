@@ -4,6 +4,7 @@ ZSH_THEME="gongyi_kphoen"
 plugins=(git tinypath)
 source $ZSH/oh-my-zsh.sh
 setopt NO_HUP
+setopt NO_CHECK_JOBS 
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
