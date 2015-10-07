@@ -1,5 +1,5 @@
 # use Oh my ZSH
-ZSH=$HOME/Archives/Programming/ZSH/Oh-My-Zsh
+ZSH=$HOME/Programming/ZSH/Oh-My-Zsh-fork
 ZSH_THEME="gongyi_kphoen"
 plugins=(git tinypath)
 source $ZSH/oh-my-zsh.sh
@@ -23,13 +23,13 @@ autoload -U colors && colors
 # PS1="%{$fg_bold[magenta]%}%n%{$fg_bold[cyan]%}@%{$fg_bold[green]%}%m %{$fg_bold[red]%}%1~ %{$fg_bold[blue]%}%* %{$fg_bold[yellow]%}$ %{$reset_color%} "
 
 # alias 
-alias ls='ls --color -FG'
+alias ls='ls -FG'
 
 # default console tools
 PAGER=/usr/bin/most 
 
 # dircolors
-source ${HOME}/.dircolors 
+# source ${HOME}/.dircolors 
 
 # PATH 
 export PATH=${PATH}:${HOME}/.local/bin

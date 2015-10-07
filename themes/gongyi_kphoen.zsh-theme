@@ -10,10 +10,10 @@
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     if [[ "$TERM" == "eterm-color" ]]; then 
         prompt_timestamp="$fg[cyan]%*%{$reset_color%}"
-	ZSH_THEME_GIT_PROMPT_PREFIX=" on $fg[yellow]"
+	    ZSH_THEME_GIT_PROMPT_PREFIX=" on $fg[yellow]"
     else
-	prompt_timestamp="$FG[028]%*%{$reset_color%}"
-	ZSH_THEME_GIT_PROMPT_PREFIX=" on $FG[136]"
+	    prompt_timestamp="$FG[028]%*%{$reset_color%}"
+	    ZSH_THEME_GIT_PROMPT_PREFIX=" on $FG[136]"
     fi
     prompt_user="%{$fg[red]%}%n%{$reset_color%}"
     prompt_host="%{$fg[magenta]%}%m%{$reset_color%}"
@@ -21,13 +21,13 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     ZSH_THEME_GIT_PROMPT_DIRTY=""
     ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-    PROMPT='[${prompt_user}@${prompt_host}:$(tinypath_git):${prompt_timestamp}]
-%# '
+    PROMPT="[${prompt_user}@${prompt_host}:$(tinypath_git):${prompt_timestamp}]
+%# "
 
     # display exitcode on the right when >0
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-    RPROMPT='${return_code}$(git_prompt_status)%{$reset_color%}'
+    RPROMPT="${return_code}$(git_prompt_status)%{$reset_color%}"
 
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
     ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
@@ -36,8 +36,8 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
     ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 else
-    PROMPT='[%n@%m:%~$(git_prompt_info)]
-%# '
+    PROMPT="[%n@%m:%~$(git_prompt_info)]
+%# "
 
     ZSH_THEME_GIT_PROMPT_PREFIX=" on"
     ZSH_THEME_GIT_PROMPT_SUFFIX=""
@@ -47,7 +47,7 @@ else
     # display exitcode on the right when >0
     return_code="%(?..%? ↵)"
 
-    RPROMPT='${return_code}$(git_prompt_status)'
+    RPROMPT="${return_code}$(git_prompt_status)"
 
     ZSH_THEME_GIT_PROMPT_ADDED=" ✚"
     ZSH_THEME_GIT_PROMPT_MODIFIED=" ✹"
